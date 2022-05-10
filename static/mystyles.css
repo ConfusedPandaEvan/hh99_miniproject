@@ -1,0 +1,217 @@
+
+** {
+    font-family: 'Noto Sans KR', sans-serif;;
+}
+
+.main1 > button {
+    font-size: 20px;
+    float: right;
+    margin: 20px auto auto 15px;
+}
+
+.main1 {
+    width: 1920px;
+    height: 366px;
+    background-image: linear-gradient(0deg, rgba(154, 154, 154, 0.3), rgba(154, 154, 154, 0.3)), url('https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+}
+
+.container {
+    margin-left: 250px;
+    font-size: 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.weather_box {
+
+    width: 330px;
+    height: 150px;
+    margin: 50px auto auto auto;
+    top: 150px;
+
+    background: rgba(139, 212, 254, 0.63);
+}
+
+.weather {
+    margin: auto;
+    text-align: center;
+
+}
+
+.main2 {
+    width: 1920px;
+    height: 300px;
+    background: rgba(91, 91, 91, 0.75);
+}
+
+.week {
+    font-size: 25px;
+    color: white;
+    align-items: flex-start;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    gap: 200px;
+
+}
+
+.main3 {
+
+    width: 1920px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+
+
+}
+
+
+.today_image2 {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    left: 90px;
+    top: 150px;
+    background-image: url('https://media.everlane.com/image/upload/c_fill,dpr_2,f_auto,g_face:center,q_auto,w_auto/v1/i/a9d9b983_4585.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+
+}
+
+.today_image1 {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    left: 30px;
+    bottom: 160px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0923/4190/products/palace_skateboards_ls_tshirt_blk_3616_200x200_crop_center@2x.jpg?v=1651503631');
+    background-position: center;
+
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    border-radius: 20px;
+
+}
+
+.today {
+    width: 350px;
+    margin: 10px auto 0 auto;
+    font-size: 25px;
+    text-align: center;
+
+
+}
+
+.past_image2 {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    left: 90px;
+    top: 150px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSazA-kj9tqLGyLx1ue4-NbjHjy8SplAkp_rdoguLrwB4dQwKhhrT3Qa9LfuKmtieVzBJA&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+
+}
+
+.past_image1 {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    left: 30px;
+    bottom: 160px;
+    background-image: url('https://cdn11.bigcommerce.com/s-rxzabllq/images/stencil/1280x1280/products/293/20779/Light-Blue-Classic-Cotton-Tshirt-Junior-Kids__58117.1579611692.jpg?c=2');
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    border-radius: 20px;
+}
+
+.weather_img1 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 180px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt1.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img2 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 425px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt5.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img3 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 675px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt7.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img4 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 915px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt9.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img5 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 1155px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt12.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img6 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 1395px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt17.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather_img7 {
+    position: absolute;
+    width: 121px;
+    height: 121px;
+    left: 1620px;
+    top: 450px;
+    background-image: url('https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt19.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+
