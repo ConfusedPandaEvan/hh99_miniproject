@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1aa8042f-5a5c-4d49-82f8-862099312e2c" name="Changes" comment="Changes">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/hh99_miniproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hh99_miniproject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/myjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mystyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/mystyles.css" afterDir="false" />
+>>>>>>> c335dcb8ed0c3b20300a17c9b9c8398954093018
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,8 +136,12 @@
       <workItem from="1652224246503" duration="89000" />
       <workItem from="1652227359715" duration="1179000" />
       <workItem from="1652231140272" duration="12000" />
+<<<<<<< HEAD
       <workItem from="1652232559731" duration="330000" />
       <workItem from="1652232949618" duration="70000" />
+=======
+      <workItem from="1652231763822" duration="1443000" />
+>>>>>>> c335dcb8ed0c3b20300a17c9b9c8398954093018
     </task>
     <servers />
   </component>
@@ -151,7 +160,12 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/miniproject$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1652227600683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hh99_miniproject$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1652232676857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+=======
+    <SUITE FILE_PATH="coverage/miniproject$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1652231932099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hh99_miniproject$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1652177525377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+>>>>>>> c335dcb8ed0c3b20300a17c9b9c8398954093018
   </component>
 </project>
