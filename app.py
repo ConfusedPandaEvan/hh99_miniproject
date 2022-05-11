@@ -110,7 +110,7 @@ def posting():
         now_weather = "N\A"
         if b is not None:
             now_weather = b.text[6:10]
-        
+
 
         # make file
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
