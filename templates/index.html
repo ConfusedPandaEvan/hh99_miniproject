@@ -39,39 +39,43 @@
         <br><br><br><br>
         <div class="container">
             <div class="weather" id="weather">
-                    오늘의 날씨: 흐림<br/>
-                    기온: OO.O℃<br/>
-                    일교차: OO.O℃
-               </div>
+                오늘의 날씨: 흐림<br/>
+                기온: OO.O℃<br/>
+                일교차: OO.O℃
+            </div>
         </div>
 
     </div>
     <div class="main2">
         <br>
         <div class="week">
-
-            <h4>sun</h4>
-            <h4>mon</h4>
-            <h4>tue</h4>
-            <h4>wed</h4>
-            <h4>thu</h4>
-            <h4>fri</h4>
-            <h4>sat</h4>
-        </div>
-        <div class="weather_imgs">
-            <div class="weather_img1">
+            <div class="day">
+                <h4>sun</h4>
+                <div class="weather_img1"></div>
             </div>
-            <div class="weather_img2">
+            <div class="day">
+                <h4>mon</h4>
+                <div class="weather_img2"></div>
             </div>
-            <div class="weather_img3">
+            <div class="day">
+                <h4>tue</h4>
+                <div class="weather_img3"></div>
             </div>
-            <div class="weather_img4">
+            <div class="day">
+                <h4>wed</h4>
+                <div class="weather_img4"></div>
             </div>
-            <div class="weather_img5">
+            <div class="day">
+                <h4>thu</h4>
+                <div class="weather_img5"></div>
             </div>
-            <div class="weather_img6">
+            <div class="day">
+                <h4>fri</h4>
+                <div class="weather_img6"></div>
             </div>
-            <div class="weather_img7">
+            <div class="day">
+                <h4>sat</h4>
+                <div class="weather_img7"></div>
             </div>
 
         </div>
@@ -79,11 +83,10 @@
     <h2 style="margin:100px 0 0 20px; ">오늘의 빠숑</h2>
     <div>
 
-        <nav id="btns-me" class="level is-mobile" style="margin-top:2rem; display: inline-block; float: left; margin: -95px auto 0px 220px; : 150px" >
-            <a class="button level-item has-text-centered is-grey" aria-label="edit"
-               onclick='$("#modal-post").addClass("is-active")' >
-                빠숑 올리기&nbsp;&nbsp;&nbsp;<span class="icon is-small"><i class="fa fa-pencil"
-                                                                       aria-hidden="true"></i></span>
+        <nav id="btns-me" class="level is-mobile"
+             style="margin-top:2rem; display: inline-block; float: left; margin: -95px auto 0px 220px; : 150px">
+            <a class="button level-item has-text-centered is-grey" style="background-color: rgba(114, 145, 163, 0.75); text-decoration: none" onclick='$("#modal-post").addClass("is-active")'>
+                빠숑 올리기&nbsp;&nbsp;&nbsp;<span class="icon is-small"><i class="fa fa-pencil" aria-hidden="true"></i></span>
             </a>
 
         </nav>
@@ -210,9 +213,9 @@
         </div>
 
     </div>
-<div style="text-align : center;">
- <img src = "../static/img/logo.png" width="450" alt="" style="margin-top: 70px;"/>
-</div>
+    <div style="text-align : center;">
+        <img src="../static/img/logo.png" width="450" alt="" style="margin-top: 70px;"/>
+    </div>
 </div>
 </body>
 </html>
