@@ -1,3 +1,59 @@
+$(document).ready(function () {
+    show_weather()
+    show_week_weather()
+})
+
+function show_weather() {
+    $.ajax({
+        type: 'GET',
+        url: '/weather',
+        data: {},
+        success: function (response) {
+            let rows = response['weathers']
+            for (let i = 0; i < rows.length; i++) {
+                let now_weather = rows[i]['now_weather']
+                let now_sky = rows[i]['now_sky']
+                let temp_html = `오늘의 날씨: ${now_sky} <br/>
+                                       현재 기온: ${now_weather}℃<br/>`
+                $("#weather").append(temp_html)
+
+            }
+        }
+    })
+}
+
+function show_week_weather() {
+    $.ajax({
+        type: 'GET',
+        url: '/weekweather',
+        data: {},
+        success: function (response) {
+            let rows = response['weekweathers']
+
+            for (let i = 0; i < 7; i++) {
+                let day = rows[i]['day']
+                let date = rows[i]['date']
+                let highdg = rows[i]['highdg']
+                let lowdg = rows[i]['lowdg']
+                let wetrdc = rows[i]['wetrdc_pm']
+
+                let temp_html = `<a><p> ${day}</p><p>${date}</p> <img src="https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt${wetrdc}.svg" alt="weather"></a>`
+                $("#week").append(temp_html)
+
+
+            }
+            let high_today = rows[1]['highdg']
+            let low_today = rows[1]['lowdg']
+            let ttg = high_today - low_today
+            let temp2_html = `일교차: ${ttg}℃`
+
+
+            $("#ttg").append(temp2_html)
+        }
+    })
+
+}
+
 function post() {
     let name = $('#input-name').val()
     let file = $('#input-pic')[0].files[0]
