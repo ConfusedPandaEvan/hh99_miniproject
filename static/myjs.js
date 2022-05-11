@@ -1,11 +1,13 @@
 function post() {
     let name = $('#input-name').val()
     let file = $('#input-pic')[0].files[0]
+    let file2 = $('#input-pic2')[0].files[0]
     let about = $("#textarea-about").val()
     let today = new Date().toISOString()
     // Today_climate Goes here
     let form_data = new FormData()
     form_data.append("file_give", file)
+    form_data.append("file_give2", file2)
     form_data.append("name_give", name)
     form_data.append("about_give", about)
     form_data.append("date_give", today)
@@ -81,15 +83,15 @@ function get_posts(username) {
                     let html_temp = `<div class="today">
                                         <img class="today_image2" src="/static/${post['post_pic_real']}">
                                         </img>
-                                        <div class="today_image1">
-                                        </div>
+                                        <img class="today_image1" src="/static/${post['post_pic_real2']}">
+                                        </img>
                                         <a>${post['username']}님의 빠숑</a>
                                         <p>기온 : <span id="temp"> 21.3</span>℃</p>
                                         <p>${post['post_info']}</p>
                                     </div>`
                     $("#post-box").append(html_temp)
                 }
-            } else console.log(wtf)
+            } 
         }
     })
 }
