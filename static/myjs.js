@@ -94,13 +94,24 @@ function sign_out() {
             window.location.href = "/login"
         }
 
+function formatDate(date) {
+  return [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate()),
+  ].join('-');
+}
 
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
 
 function get_posts(username) {
     if (username == undefined) {
         username = ""
     }
     $("#post-box").empty()
+    $("#post-box2").empty()
     $.ajax({
         type: "GET",
         url: `/get_posts?username_give=${username}`,
@@ -108,53 +119,40 @@ function get_posts(username) {
         success: function (response) {
             if (response["result"] == "success") {
 
+
                 let posts = response["posts"]
 
                 for (let i = 0; i < posts.length; i++) {
                     let post = posts[i]
-                    let time_post = new Date(post["date"])
-                    // let time_before = time2str(time_post)
+                    // If today's date equals to the post's date
+                    if (post["date"].split("T")[0] == formatDate(new Date())) {
+                        let html_temp = `<div class="today">
+                                            <img class="today_image2" src="/static/${post['post_pic_real']}">
+                                            </img>
+                                            <img class="today_image1" src="/static/${post['post_pic_real2']}">
+                                            </img>
+                                            <br><br>
+                                            <a>${post['username']}님의 빠숑</a>
+                                            <p>기온 : <span id="temp"> 21.3</span>℃</p>
+                                            <p>${post['post_info']}</p>
+                                        </div>`
 
+                        $("#post-box").append(html_temp)
+                    }
+                    else {
+                        let html_temp = `<div class="today">
+                                            <img class="today_image2" src="/static/${post['post_pic_real']}">
+                                            </img>
+                                            <img class="today_image1" src="/static/${post['post_pic_real2']}">
+                                            </img>
+                                            <br><br>
+                                            <a>${post['username']}님의 빠숑</a>
+                                            <p>기온 : <span id="temp"> 21.3</span>℃</p>
+                                            <p>${post['post_info']}</p>
+                                        </div>`
 
-                    // let html_temp = `<div class="box" id="${post["_id"]}">
-                    //                     <article class="media">
-                    //                         <div class="media-left">
-                    //                             <a class="image is-64x64" href="/user/${post['username']}">
-                    //                                 <img class="is-rounded" src="/static/${post['profile_pic_real']}"
-                    //                                      alt="Image">
-                    //                             </a>
-                    //                         </div>
-                    //                         <div class="media-content">
-                    //                             <div class="content">
-                    //                                 <p>
-                    //                                     <strong>${post['profile_name']}</strong> <small>@${post['username']}</small> <small>${time_before}</small>
-                    //                                     <br>
-                    //                                     ${post['comment']}
-                    //                                 </p>
-                    //                             </div>
-                    //                             <nav class="level is-mobile">
-                    //                                 <div class="level-left">
-                    //                                     <a class="level-item is-sparta" aria-label="heart" onclick="toggle_like('${post['_id']}', 'heart')">
-                    //                                         <span class="icon is-small"><i class="fa ${class_heart}"
-                    //                                                                        aria-hidden="true"></i></span>&nbsp;<span class="like-num">${num2str(count_heart)}</span>
-                    //                                     </a>
-                    //                                 </div>
-                    //
-                    //                             </nav>
-                    //                         </div>
-                    //                     </article>
-                    //                 </div>`
-                    let html_temp = `<div class="today">
-                                        <img class="today_image2" src="/static/${post['post_pic_real']}">
-                                        </img>
-                                        <img class="today_image1" src="/static/${post['post_pic_real2']}">
-                                        </img>
-                                        <br><br>
-                                        <a>${post['username']}님의 빠숑</a>
-                                        <p>기온 : <span id="temp"> 21.3</span>℃</p>
-                                        <p>${post['post_info']}</p>
-                                    </div>`
-                    $("#post-box").append(html_temp)
+                        $("#post-box2").append(html_temp)
+                    }
                 }
             } 
         }
