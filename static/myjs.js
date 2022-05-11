@@ -33,8 +33,6 @@ function show_week_weather() {
             for (let i = 0; i < 7; i++) {
                 let day = rows[i]['day']
                 let date = rows[i]['date']
-                let highdg = rows[i]['highdg']
-                let lowdg = rows[i]['lowdg']
                 let wetrdc = rows[i]['wetrdc_pm']
 
                 let temp_html = `<a><p> ${day}</p><p>${date}</p> <img src="https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt${wetrdc}.svg" alt="weather"></a>`
@@ -42,16 +40,38 @@ function show_week_weather() {
 
 
             }
-            let high_today = rows[1]['highdg']
-            let low_today = rows[1]['lowdg']
+            let high_today = rows[0]['highdg']
+            let low_today = rows[0]['lowdg']
             let ttg = high_today - low_today
             let temp2_html = `일교차: ${ttg}℃`
-
-
             $("#ttg").append(temp2_html)
-        }
-    })
+            let weather_pic = rows[0]['wetrdc_pm']
 
+            if (weather_pic == 1) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (weather_pic == 5) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (weather_pic == 7) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (weather_pic == 9) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1603321544554-f416a9a11fcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (weather_pic == 12) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1610805796563-8da423735fce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (weather_pic == 18) {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1511149755252-35875b273fd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else {
+                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1568816756611-aaf3d3bd0ef4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1440&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+
+
+        }
+        },})
 }
 
 function post() {
