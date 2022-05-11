@@ -101,7 +101,7 @@ def posting():
         name_receive = request.form["name_give"]
         about_receive = request.form["about_give"]
         date_receive = request.form["date_give"]
-        string_date = date_receive.replace(":", "_")
+        string_date = date_receive.replace(":", "_").replace(".","_")
         doc = {
             "username": user_info["username"],
             "profile_name": user_info["profile_name"],
@@ -111,14 +111,28 @@ def posting():
             "date": date_receive
         }
         if 'file_give' in request.files:
+            # This is defining the file name
             username = payload["id"]
             file = request.files["file_give"]
+            print(type(file))
             filename = secure_filename(file.filename)
             extension = filename.split(".")[-1]
+            print(string_date)
             file_path = f"post_pics/{username}_{string_date}.{extension}"
             file.save("./static/" + file_path)
             doc["post_pic"] = filename
             doc["post_pic_real"] = file_path
+        elif 'file_give2' in request.files:
+            # This is defining the file name
+            username = payload["id"]
+            file = request.files["file_give2"]
+            filename = secure_filename(file.filename)
+            extension = filename.split(".")[-1]
+            file_path = f"post_pics/{username}_{string_date}(2).{extension}"
+            file.save("./static/" + file_path)
+            doc["post_pic2"] = filename
+            doc["post_pic_real2"] = file_path
+
         db.uploads.insert_one(doc)
         return jsonify({"result": "success", 'msg': '포스트를 올렸습니다.'})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):

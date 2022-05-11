@@ -1,15 +1,17 @@
 function post() {
     let name = $('#input-name').val()
     let file = $('#input-pic')[0].files[0]
+    let file2 = $('#input-pic2')[0].files[0]
     let about = $("#textarea-about").val()
     let today = new Date().toISOString()
     // Today_climate Goes here
     let form_data = new FormData()
     form_data.append("file_give", file)
+    form_data.append("file_give2", file2)
     form_data.append("name_give", name)
     form_data.append("about_give", about)
     form_data.append("date_give", today)
-    console.log(name, file, about, form_data)
+    console.log(name, file, file2, about, form_data)
 
     $.ajax({
         type: "POST",
