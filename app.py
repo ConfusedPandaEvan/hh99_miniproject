@@ -108,7 +108,12 @@ def posting():
             "profile_pic_real": user_info["profile_pic_real"],
             "post_name": name_receive,
             "post_info": about_receive,
-            "date": date_receive
+            "date": date_receive,
+            "post_pic": "post_pics/placeholder1.png",
+            "post_pic2": "post_pics/placeholder1.png",
+            "post_pic_real": "post_pics/placeholder1.png",
+            "post_pic_real2": "post_pics/placeholder1.png",
+
         }
         if 'file_give' in request.files:
             username = payload["id"]
