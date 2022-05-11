@@ -37,7 +37,19 @@ def join():
 
 # This part is for posting stuffs
 
+@app.route('/')
+def home():
+    # token_receive = request.cookies.get('mytoken')
+    try:
+        # payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        payload = {'id': 'qwer1234', 'exp': 1652233044}
+        user_info = db.users.find_one({"username": payload["id"]})
+        return render_template('index.html', user_info=user_info)
 
+    except jwt.ExpiredSignatureError:
+        return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+    except jwt.exceptions.DecodeError:
+        return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
 
 @app.route('/posting', methods=['POST'])
 def posting():
@@ -66,12 +78,36 @@ def posting():
             file.save("./static/"+file_path)
             doc["post_pic"] = filename
             doc["post_pic_real"] = file_path
-        db.posts.insert_one(doc)
+        db.uploads.insert_one(doc)
         return jsonify({"result": "success", 'msg': '포스트를 올렸습니다.'})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for("home"))
 
+@app.route("/get_posts", methods=['GET'])
+def get_posts():
+    # token_receive = request.cookies.get('mytoken')
+    try:
+        # payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        payload = {'id': 'qwer1234', 'exp': 1652233044}
+        username_receive = request.args.get("username_give")
 
+        if username_receive == "":
+            posts = list(db.uploads.find({}).sort("date", -1).limit(20))
+
+
+        else:
+            posts = list(db.uploads.find({"username": username_receive}).sort("date", -1).limit(20))
+
+
+
+        # 포스팅 목록 받아오기
+        for post in posts:
+            post["_id"] = str(post["_id"])
+        #     post["count_heart"] = db.likes.count_documents({"post_id": post["_id"], "type": "heart"})
+        #     post["heart_by_me"] = bool(db.likes.find_one({"post_id": post["_id"], "type": "heart", "username": payload['id']}))
+        return jsonify({"result": "success", "msg": "포스팅을 가져왔습니다.", "posts": posts})
+    except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
+        return redirect(url_for("home"))
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

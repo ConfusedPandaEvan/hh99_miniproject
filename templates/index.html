@@ -22,7 +22,10 @@
 
 
     <script>
+        $(document).ready(function () {
+            get_posts()
 
+        })
     </script>
 </head>
 <body>
@@ -149,7 +152,7 @@
         <button class="modal-close is-large" aria-label="close"
                 onclick='$("#modal-edit").removeClass("is-active")'></button>
     </div>
-    <div class="main3">
+    <div id = "post-box" class="main3">
 
         <div class="today">
             <div class="today_image2">
@@ -158,6 +161,7 @@
             </div>
             <a>현승범님의 빠숑</a>
             <p>기온 : <span id="temp"> 21.3</span>℃</p>
+            <p>코멘트</p>
         </div>
         <div class="today">
             <div class="today_image2">
