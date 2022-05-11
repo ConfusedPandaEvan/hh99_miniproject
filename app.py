@@ -5,6 +5,8 @@ import hashlib
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
+import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -14,6 +16,12 @@ SECRET_KEY = 'SPARTA'
 
 client = MongoClient('mongodb+srv://test:sparta@cluster0.yjvro.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
+
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+data = requests.get('https://weather.naver.com/today', headers=headers)
+soup = BeautifulSoup(data.text, 'html.parser')
 
 
 
@@ -163,6 +171,54 @@ def get_posts():
         return jsonify({"result": "success", "msg": "포스팅을 가져왔습니다.", "posts": posts})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for("home"))
+
+@app.route("/weather", methods=["GET"])
+def weather_get():
+    weather_list = []
+    weathernow = soup.select('#now > div > div.weather_area > div.weather_now')
+    for now in weathernow:
+        b = now.select_one('div > strong')
+    if b is not None:
+        now_weather = b.text[6:10]
+        now_sky = now.select_one('p > span.weather').text
+        weather_list.append(
+            {
+                'now_weather' : now_weather,
+                'now_sky' : now_sky
+            }
+        )
+
+
+    return jsonify({'weathers': weather_list})
+
+
+@app.route("/weekweather", methods=["GET"])
+def week_weather_get():
+    week_weather_list = []
+    week_weathers = soup.select('#weekly > div.scroll_control.end_left > div > ul > li')
+    for week_weather in week_weathers:
+        a = week_weather.select_one('span > strong')
+        if a is not None:
+            day = a.text
+            date = week_weather.select_one('span > span').text
+            lowdg = week_weather.select_one('strong > span.lowest').text[4:6]
+            highdg = week_weather.select_one('strong > span.highest').text[4:6]
+            wetrdc_pm = week_weather.select_one('div > div.cell_weather > span:nth-child(2)')['data-wetr-cd']
+            week_weather_list.append(
+                {
+                    'day': day,
+                    'date': date,
+                    'lowdg' : lowdg,
+                    'highdg' : highdg,
+                    'wetrdc_pm' : wetrdc_pm
+
+
+                }
+            )
+
+
+    return jsonify({'weekweathers': week_weather_list})
+
 
 
 if __name__ == '__main__':
