@@ -32,6 +32,14 @@ function post() {
     });
 }
 
+function sign_out() {
+            $.removeCookie('mytoken', {path: '/'});
+            alert('로그아웃!')
+            window.location.href = "/login"
+        }
+
+
+
 function get_posts(username) {
     if (username == undefined) {
         username = ""
@@ -85,6 +93,7 @@ function get_posts(username) {
                                         </img>
                                         <img class="today_image1" src="/static/${post['post_pic_real2']}">
                                         </img>
+                                        <br><br>
                                         <a>${post['username']}님의 빠숑</a>
                                         <p>기온 : <span id="temp"> 21.3</span>℃</p>
                                         <p>${post['post_info']}</p>
