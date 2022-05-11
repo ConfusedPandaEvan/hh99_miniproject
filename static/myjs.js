@@ -34,7 +34,7 @@ function get_posts(username) {
     if (username == undefined) {
         username = ""
     }
-    // $("#post-box").empty()
+    $("#post-box").empty()
     $.ajax({
         type: "GET",
         url: `/get_posts?username_give=${username}`,
@@ -43,10 +43,11 @@ function get_posts(username) {
             if (response["result"] == "success") {
 
                 let posts = response["posts"]
+
                 for (let i = 0; i < posts.length; i++) {
                     let post = posts[i]
                     let time_post = new Date(post["date"])
-                    let time_before = time2str(time_post)
+                    // let time_before = time2str(time_post)
 
 
                     // let html_temp = `<div class="box" id="${post["_id"]}">
@@ -78,8 +79,8 @@ function get_posts(username) {
                     //                     </article>
                     //                 </div>`
                     let html_temp = `<div class="today">
-                                        <div class="today_image2" href="/static/${post['post_pic_real']}">
-                                        </div>
+                                        <img class="today_image2" src="/static/${post['post_pic_real']}">
+                                        </img>
                                         <div class="today_image1">
                                         </div>
                                         <a>${post['username']}님의 빠숑</a>

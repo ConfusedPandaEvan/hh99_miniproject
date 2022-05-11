@@ -12,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 SECRET_KEY = 'SPARTA'
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.yjvro.mongodb.net/Cluster0?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:sparta@cluster0.plsmp.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
 
@@ -101,6 +101,7 @@ def posting():
         name_receive = request.form["name_give"]
         about_receive = request.form["about_give"]
         date_receive = request.form["date_give"]
+        string_date = date_receive.replace(":", "_")
         doc = {
             "username": user_info["username"],
             "profile_name": user_info["profile_name"],
@@ -114,7 +115,7 @@ def posting():
             file = request.files["file_give"]
             filename = secure_filename(file.filename)
             extension = filename.split(".")[-1]
-            file_path = f"post_pics/{username}_{date_receive}.{extension}"
+            file_path = f"post_pics/{username}_{string_date}.{extension}"
             file.save("./static/" + file_path)
             doc["post_pic"] = filename
             doc["post_pic_real"] = file_path
