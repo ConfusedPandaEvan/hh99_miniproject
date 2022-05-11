@@ -133,7 +133,7 @@ function get_posts(username) {
                                             </img>
                                             <br><br>
                                             <a>${post['username']}님의 빠숑</a>
-                                            <p>기온 : <span id="temp"> 21.3</span>℃</p>
+                                            <p>기온 : <span id="temp"> ${post["weather"]}</span>℃</p>
                                             <p>${post['post_info']}</p>
                                         </div>`
 
@@ -147,7 +147,7 @@ function get_posts(username) {
                                             </img>
                                             <br><br>
                                             <a>${post['username']}님의 빠숑</a>
-                                            <p>기온 : <span id="temp"> 21.3</span>℃</p>
+                                            <p>기온 : <span id="temp"> ${post["weather"]}</span>℃</p>
                                             <p>${post['post_info']}</p>
                                         </div>`
 
