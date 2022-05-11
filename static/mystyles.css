@@ -4,10 +4,39 @@
 }
 
 .index_all {
-    max-width: 1920px;
-    width: 95%;
+    max-width: 1280px;
+    width: 100%;
     margin: auto;
 
+}
+
+h2 {
+    margin: 100px 0 0 20px;
+    font-weight: bolder;
+}
+
+.header1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 50px;
+    color: #F0F0F0;
+}
+
+.header2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 50px;
+    color: #F0F0F0;
+}
+
+.header3 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: #F0F0F0;
 }
 
 .main1 > button {
@@ -16,10 +45,11 @@
     float: right;
     margin: 20px auto auto 15px;
 }
+
 .main1 > button:hover {
-        background: rgba(139, 212, 254, 0.63);
-        color : white;
-    }
+    background: rgba(139, 212, 254, 0.63);
+    color: white;
+}
 
 .main1 {
     height: 366px;
@@ -29,49 +59,65 @@
 }
 
 .container {
-
-    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-        width: 330px;
-    height: 150px;
-    background: rgba(139, 212, 254, 0.63);
+    width: 330px;
+    height: 155px;
+    background: #0043A8;
+    opacity: 0.75;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
-
 
 
 .weather {
-
-    margin: auto;
+    padding: 0;
+    margin: 0;
+    line-height: 0px;
     text-align: center;
 
 }
 
-.day {
-    margin-top: 40px;
-    gap : 20px;
-    display : flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+.day-of-week {
+
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.main2 {
 
+.main2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     height: 300px;
-background: rgba(114, 145, 163, 0.75);
+    width: 100%;
+    background: rgba(114, 145, 163, 0.75);
+}
+
+.date {
+    opacity: 0.75;
+    font-weight: lighter;
 }
 
 .week {
+    max-width: 1280px;
     font-size: 25px;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
 
 
-
-    gap: 140px;
+    gap: 5%;
 }
 
 
@@ -165,9 +211,10 @@ background: rgba(114, 145, 163, 0.75);
 .button.is-grey {
     width: 205px;
     height: 64px;
-    background-color: #3C3C3C;
     border-color: transparent;
     color: #fff !important;
+    font-size: 18pt;
+    text-align: center;
 }
 
 .main3 {
@@ -245,7 +292,6 @@ background: rgba(114, 145, 163, 0.75);
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
     border-radius: 20px;
 }
-
 
 
 .button.is-rainbow {

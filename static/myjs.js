@@ -13,8 +13,8 @@ function show_weather() {
             for (let i = 0; i < rows.length; i++) {
                 let now_weather = rows[i]['now_weather']
                 let now_sky = rows[i]['now_sky']
-                let temp_html = `오늘의 날씨: ${now_sky} <br/>
-                                       현재 기온: ${now_weather}℃<br/>`
+                let temp_html = `<div class="header1">오늘의 날씨: ${now_sky}</div> <br/>
+                                       <div class="header2">현재 기온: ${now_weather}℃</div><br/>`
                 $("#weather").append(temp_html)
 
             }
@@ -37,7 +37,11 @@ function show_week_weather() {
                 let lowdg = rows[i]['lowdg']
                 let wetrdc = rows[i]['wetrdc_pm']
 
-                let temp_html = `<a><p> ${day}</p><p>${date}</p> <img src="https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt${wetrdc}.svg" alt="weather"></a>`
+                let temp_html = `<div class="day-of-week">
+                                    <p> ${day}</p>
+                                    <p class="date">${date}</p> 
+                                    <img src="https://ssl.pstatic.net/static/weather/image/icon_weather/ico_animation_wt${wetrdc}.svg" alt="weather">
+                                 </div>`
                 $("#week").append(temp_html)
 
 
@@ -45,10 +49,10 @@ function show_week_weather() {
             let high_today = rows[1]['highdg']
             let low_today = rows[1]['lowdg']
             let ttg = high_today - low_today
-            let temp2_html = `일교차: ${ttg}℃`
+            let temp2_html = `<div class="header3"> 일교차: ${ttg}℃ </div>`
 
 
-            $("#ttg").append(temp2_html)
+            $("#weather").append(temp2_html)
         }
     })
 
