@@ -1,4 +1,5 @@
-$(document).ready(function () {
+
+  $(document).ready(function () {
     show_weather()
     show_week_weather()
 })
@@ -44,21 +45,12 @@ function show_week_weather() {
 
 
             }
-            let high_today = rows[0]['highdg']
+             let high_today = rows[0]['highdg']
             let low_today = rows[0]['lowdg']
             let ttg = high_today - low_today
-<<<<<<< HEAD
-            let temp2_html = `일교차: ${ttg}℃`
+            let temp2_html = `<div class="header3">일교차: ${ttg}℃</div> <br/>`
             $("#ttg").append(temp2_html)
             let weather_pic = rows[0]['wetrdc_pm']
-=======
-            let temp2_html = `<div class="header3"> 일교차: ${ttg}℃ </div>`
-
-
-            $("#weather").append(temp2_html)
-        }
-    })
->>>>>>> e15fa393aa1fa6b8cb9c035ff9d5d2dacee7c264
 
             if (weather_pic == 1) {
                  document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) no-repeat"
