@@ -190,12 +190,15 @@ def weather_get():
     if b is not None:
         now_weather = b.text[6:10]
         now_sky = now.select_one('p > span.weather').text
+
         weather_list.append(
             {
                 'now_weather' : now_weather,
-                'now_sky' : now_sky
+                'now_sky' : now_sky,
+
             }
         )
+
 
 
     return jsonify({'weathers': weather_list})
