@@ -103,8 +103,17 @@ def home():
 def posting():
     token_receive = request.cookies.get('mytoken')
     try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        # get weather information
+        weathernow = soup.select('#now > div > div.weather_area > div.weather_now')
+        for now in weathernow:
+            b = now.select_one('div > strong')
+        now_weather = "N\A"
+        if b is not None:
+            now_weather = b.text[6:10]
 
+
+        # make file
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         user_info = db.users.find_one({"username": payload["id"]})
         name_receive = request.form["name_give"]
         about_receive = request.form["about_give"]
@@ -117,6 +126,7 @@ def posting():
             "post_name": name_receive,
             "post_info": about_receive,
             "date": date_receive,
+            "weather": now_weather,
             "post_pic": "post_pics/placeholder1.png",
             "post_pic2": "post_pics/placeholder1.png",
             "post_pic_real": "post_pics/placeholder1.png",
