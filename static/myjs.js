@@ -18,7 +18,47 @@ function show_weather() {
                                        <div class="header2">현재 기온: ${now_weather}℃</div><br/>`
                 $("#weather").append(temp_html)
 
+
+            let text_sun = "맑음"
+            let text_sun2 = "갬"
+            let text_cloud = "구름"
+            let text_dcloud = "흐림"
+            let text_rain = "비"
+            let text_rain2 = "소나기"
+            let text_thunder = "뇌우"
+            let text_snow = '눈'
+
+            if (text_sun.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_sun2.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_cloud.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_dcloud.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_rain.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1603321544554-f416a9a11fcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_rain2.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1603321544554-f416a9a11fcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_thunder.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1511149755252-35875b273fd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else if (text_snow.indexOf(now_sky) != -1){
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1610805796563-8da423735fce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+            }else{
+                document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80) no-repeat"
+                document.getElementById("main1").style.backgroundSize = "cover";
+
             }
+            }
+
         }
     })
 }
@@ -45,37 +85,14 @@ function show_week_weather() {
 
 
             }
+
              let high_today = rows[0]['highdg']
             let low_today = rows[0]['lowdg']
             let ttg = high_today - low_today
             let temp2_html = `<div class="header3">(일교차: ${ttg}℃)</div> <br/>`
             $("#weather").append(temp2_html)
-            let weather_pic = rows[0]['wetrdc_pm']
-
-            if (weather_pic == 1) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else if (weather_pic == 5) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else if (weather_pic == 7) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else if (weather_pic == 9) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1603321544554-f416a9a11fcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else if (weather_pic == 12) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1610805796563-8da423735fce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else if (weather_pic == 18) {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1511149755252-35875b273fd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
-            }else {
-                 document.getElementById("main1").style.background = "url(https://images.unsplash.com/photo-1568816756611-aaf3d3bd0ef4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1440&q=80) no-repeat"
-                document.getElementById("main1").style.backgroundSize = "cover";
 
 
-        }
         },})
 }
 
