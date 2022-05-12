@@ -93,7 +93,7 @@ function show_week_weather() {
             $("#weather").append(temp2_html)
 
 
-        },})
+        }})
 }
 
 function post() {
